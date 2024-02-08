@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './component/product-list/product-list.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { ProductService } from './service/product.service';
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
