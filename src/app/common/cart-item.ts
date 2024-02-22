@@ -1,10 +1,10 @@
 import { Product } from "./product";
 
 export class CartItem {
-  id:number=0;
-  name:string="";
-  imageUrl:string="";
-  unitPrice:number=0;
+  id!:number;
+  name!:string;
+  imageUrl!:string;
+  unitPrice!:number;
 
   quantity:number=0;
   constructor(product:Product){
