@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-ecommmerce": {
+    "angular-ecommerce": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,16 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-ecommmerce",
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "@babel/runtime-corejs3",
+              "@okta/okta-signin-widget",
+              "detect-node",
+              "tiny-emitter",
+              "p-cancelable",
+              "cross-fetch"
+            ],
+            "outputPath": "dist/angular-ecommerce",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +34,8 @@
             "styles": [
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
             ],
             "scripts": []
           },
@@ -66,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-ecommmerce:build:production"
+              "browserTarget": "angular-ecommerce:build:production"
             },
             "development": {
-              "browserTarget": "angular-ecommmerce:build:development"
+              "browserTarget": "angular-ecommerce:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-ecommmerce:build"
+            "browserTarget": "angular-ecommerce:build"
           }
         },
         "test": {
@@ -96,8 +106,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
