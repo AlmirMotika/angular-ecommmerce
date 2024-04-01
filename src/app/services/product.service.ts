@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,8 @@ export class ProductService {
 
 
 
-private baseUrl='http://localhost:8080/api/products';
-private categoryUrl='http://localhost:8080/api/product-category';
+private baseUrl=environment.AMshopApiUrl + '/products';
+private categoryUrl=environment.AMshopApiUrl + '/product-category';
   constructor(private httpClient:HttpClient) { }
 
   getProductListPaginate(thePage:number,

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  AMshopApiUrl:"https://localhost:8443/api"
+  AMshopApiUrl:"https://localhost:9898/api"
 };
 
 /*
